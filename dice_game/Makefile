@@ -1,8 +1,10 @@
+SBD ?= GSIM32L
 ifneq (,$(wildcard *.sbd))
 include $(wildcard *.sbd)
 endif
 SDETOP = /cygdrive/c/sde-6.06/sde
 CUT_DIR = ../cpputest
+SBDCLEAN = *.sbd
 
 TEST_SRCS = \
 	$(CUT_DIR)/src/CppUTest/CommandLineArguments.cpp \
@@ -21,10 +23,11 @@ TEST_SRCS = \
 	$(CUT_DIR)/src/CppUTest/Utest.cpp \
 	$(CUT_DIR)/src/CppUTest/UtestPlatform.cpp 
 
+OBJS ?= $(filter %.o,$(SRCS:.c=.o) $(SRCS:.cpp=.o) $(SRCS:.cc=.o) $(SRCS:.sx=.o) $(SRCS:.s=.o) $(SRCS:.S=.o))
+
 PROG = dice_game
 
-SRCS = $(TEST_SRCS) \
-	$(wildcard *.cpp)
+SRCS = $(TEST_SRCS) $(wildcard *.cpp)
 
 LOADLIBES = -lstdc++ 
 CXXFLAGS += -O1 -g
@@ -34,3 +37,10 @@ LDFLAGS += -Wl,--gc-sections
 FLOAT = yes
 
 include $(SDETOP)/examples/make.mk
+
+run : all
+	sde-run $(PROG)sa
+
+debug : all
+	sde-insight $(PROG)ram
+
