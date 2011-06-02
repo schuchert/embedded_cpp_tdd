@@ -1,0 +1,7 @@
+*.o
+*.d
+*ram
+*sa
+*.sbd
+*.bin
+*.map
