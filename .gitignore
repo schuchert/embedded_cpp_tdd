@@ -5,3 +5,8 @@
 *.sbd
 *.bin
 *.map
+Debug
+*.vpj
+*.vpw
+*.vpwhist
+*.vtg
