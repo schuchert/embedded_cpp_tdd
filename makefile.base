@@ -29,7 +29,7 @@ SRCS = $(TEST_SRCS) $(wildcard *.cpp)
 
 LOADLIBES = -lstdc++ 
 CXXFLAGS += -O1 -g
-CXXFLAGS += -ffunction-sections -I$(CUT_DIR)/include
+CXXFLAGS += -ffunction-sections -I$(CUT_DIR)/include -I.. -I../boost/tr1
 LDFLAGS += -Wl,--gc-sections
 
 FLOAT = yes
