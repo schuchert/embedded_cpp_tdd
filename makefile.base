@@ -1,8 +1,9 @@
+SDE_DIR := ${shell which sde-ar | sed "s/\/bin\/sde-ar//"}
 SBD ?= GSIM32L
 ifneq (,$(wildcard *.sbd))
 include $(wildcard *.sbd)
 endif
-SDETOP = /cygdrive/c/sde-6.06/sde
+SDETOP = ${SDE_DIR}/sde
 CUT_DIR = ../cpputest
 SBDCLEAN = *.sbd
 
