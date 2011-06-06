@@ -1,3 +1,6 @@
+# hack to remove warning due to line 806 of base makefile
+MAKECMDGOALS += clean
+
 SDE_DIR := ${shell which sde-ar | sed "s/\/bin\/sde-ar//"}
 SBD ?= GSIM32L
 ifneq (,$(wildcard *.sbd))
