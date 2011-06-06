@@ -5,7 +5,7 @@
 *.sbd
 *.bin
 *.map
-Debug
+./Debug
 *.vpj
 *.vpw
 *.vpwhist
